@@ -6,8 +6,7 @@
 
 body {
   height: 100vh;
-  display: flex;
-  background: #060AB2;
+  background: rgb(178, 29, 6);
 }
 
 .memory-game {
@@ -46,10 +45,55 @@ body {
   padding: 20px;
   position: absolute;
   border-radius: 5px;
-  background: #1C7CCC;
+  background: #cc6b1c;
   backface-visibility: hidden;
 }
 
 .front-face {
   transform: rotateY(180deg);
+}
+
+footer{
+  height: 100px;
+  padding: 10px;
+  background-color: orange;
+  display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  
+}
+img{
+  border-radius: 50%;
+}
+.flex-container1 {
+  display: flex;
+  align-items: center;
+  
+}
+.flex-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-container3 {
+  display: flex;
+  justify-content: end;
+}
+.timer{
+  color: white;
+}
+
+.trigger {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  width: 100px;
+}
+#timer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }

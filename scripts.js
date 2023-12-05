@@ -11,14 +11,14 @@ function flipCard() {
   this.classList.add('flip');
 
   if (!hasFlippedCard) {
-    // first click
+    // premier clique
     hasFlippedCard = true;
     firstCard = this;
 
     return;
   }
 
-  // second click
+  // deuxième clique
   secondCard = this;
 
   checkForMatch();
@@ -61,3 +61,47 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+//
+const time = document.querySelector(".time");
+const trigger = document.querySelector(".trigger");
+
+let timerInterval;
+let timeElapsed = 0;
+
+/**
+ * Description 
+ * 
+ * @param {integer} seconds Description de la variable
+ * @returns string  Descvription
+ */
+const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    return `${formattedMinutes}:${formattedSeconds}`;
+};
+
+/**
+ * 
+ */
+const toggleTimer = () => {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        timeElapsed = 0;
+        trigger.innerText = "Start";
+    } 
+    else {
+        timerInterval = setInterval(() => {
+            timeElapsed += 1;
+            time.innerText = formatTime(timeElapsed);
+        }, 1000);
+        trigger.innerText = "Stop";
+    }
+};
+//
+trigger.addEventListener("click", toggleTimer);
