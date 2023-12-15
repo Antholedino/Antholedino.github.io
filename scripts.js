@@ -103,11 +103,10 @@ const toggleTimer = () => {
 //
 trigger.addEventListener("click", toggleTimer);
 
-
 //Cette fonction sert à calculer et à indiquer le nombre d'essaie
 function nombreEssai(){
   console.log("test")
 
   let nombreEssai = document.getElementById("resultat");
-  
+  resultat += 1;
 }
